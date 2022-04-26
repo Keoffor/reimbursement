@@ -59,6 +59,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/reimbursement/allRequest").hasAuthority(Roles.MANAGER.name())
                 .antMatchers(HttpMethod.PUT,"/reimbursement/approvalDesk").hasAuthority(Roles.MANAGER.name())
                 .antMatchers(HttpMethod.DELETE,"/reimbursement/delete/{id}").hasAuthority(Roles.MANAGER.name())
+                .antMatchers(HttpMethod.POST,"/reimbursement/addEmployee").permitAll()
+                .antMatchers(HttpMethod.GET, "/reimbursement/addManager").hasAuthority(Roles.MANAGER.name())
                 .anyRequest().authenticated()
 
                 .and()
